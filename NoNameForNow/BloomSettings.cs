@@ -72,8 +72,8 @@ namespace BloomPostprocess
             
             //                Name           Thresh  Blur    Bloom   Base  BloomSat     BaseSat
             //new BloomSettings("Default",     0.00f,  1.65f,  1.7f, 1.60f,    1.60f,       1.55f),
-            new BloomSettings("Default",     0.00f,  0.65f,  0.65f, 0.65f, 1.60f,  1.55f),
-            new BloomSettings("Default23",        0,      3,   1,     1,    1,       1),
+            new BloomSettings("Default2133",     0.00f,  0.65f,  0.65f, 0.65f, 1.60f,  1.55f),
+            new BloomSettings("Default",        2,      6,   4,     1,    1,       1),
             new BloomSettings("Desaturated", 0.5f,   8,   2,     1,    0,       1),
             new BloomSettings("Saturated",   0.25f,  4,   2,     1,    2,       0),
             new BloomSettings("Blurry",      0,      2,   1,     0.1f, 1,       1),

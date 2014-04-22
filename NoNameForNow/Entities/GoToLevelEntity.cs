@@ -21,30 +21,31 @@ using Keys = Microsoft.Xna.Framework.Input.Keys;
 using Vector3 = Microsoft.Xna.Framework.Vector3;
 using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 using Microsoft.Xna.Framework;
-using NoNameForNow.DrawableBatches;
 
 #endif
 #endregion
 
 namespace NoNameForNow.Entities
 {
-	public partial class Player
+	public partial class GoToLevelEntity
 	{
         public AxisAlignedCube cube = new AxisAlignedCube();
-       
+
+        public string levelName;
+
 		private void CustomInitialize()
 		{
-            cube.Color = Color.Green;
             cube.Visible = true;
-            cube.ScaleX = 15;
-            cube.ScaleY = 55;
-            cube.ScaleZ = 15;
-            cube.AttachTo(this, false);
+            cube.Color = Color.Pink;
+            cube.ScaleX = 25;
+            cube.ScaleY = 25;
+            cube.ScaleZ = 25;
 
 		}
 
 		private void CustomActivity()
 		{
+            cube.Position = this.Position;
 
 		}
 

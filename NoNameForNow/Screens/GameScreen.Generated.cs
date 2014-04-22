@@ -40,6 +40,7 @@ namespace NoNameForNow.Screens
 		private NoNameForNow.Entities.Level1 Level1Instance;
 		private PositionedObjectList<NoNameForNow.Entities.TeleIn> TeleInList;
 		private PositionedObjectList<NoNameForNow.Entities.TeleOut> TeleOutList;
+		private PositionedObjectList<NoNameForNow.Entities.GoToLevelEntity> GoToLevelEntityList;
 
 		public GameScreen()
 			: base("GameScreen")
@@ -58,6 +59,8 @@ namespace NoNameForNow.Screens
 			TeleInList.Name = "TeleInList";
 			TeleOutList = new PositionedObjectList<NoNameForNow.Entities.TeleOut>();
 			TeleOutList.Name = "TeleOutList";
+			GoToLevelEntityList = new PositionedObjectList<NoNameForNow.Entities.GoToLevelEntity>();
+			GoToLevelEntityList.Name = "GoToLevelEntityList";
 			
 			
 			PostInitialize();
@@ -104,6 +107,14 @@ namespace NoNameForNow.Screens
 						TeleOutList[i].Activity();
 					}
 				}
+				for (int i = GoToLevelEntityList.Count - 1; i > -1; i--)
+				{
+					if (i < GoToLevelEntityList.Count)
+					{
+						// We do the extra if-check because activity could destroy any number of entities
+						GoToLevelEntityList[i].Activity();
+					}
+				}
 			}
 			else
 			{
@@ -126,6 +137,7 @@ namespace NoNameForNow.Screens
 			
 			TeleInList.MakeOneWay();
 			TeleOutList.MakeOneWay();
+			GoToLevelEntityList.MakeOneWay();
 			if (PlayerInstance != null)
 			{
 				PlayerInstance.Destroy();
@@ -144,8 +156,13 @@ namespace NoNameForNow.Screens
 			{
 				TeleOutList[i].Destroy();
 			}
+			for (int i = GoToLevelEntityList.Count - 1; i > -1; i--)
+			{
+				GoToLevelEntityList[i].Destroy();
+			}
 			TeleInList.MakeTwoWay();
 			TeleOutList.MakeTwoWay();
+			GoToLevelEntityList.MakeTwoWay();
 
 			base.Destroy();
 
@@ -177,6 +194,10 @@ namespace NoNameForNow.Screens
 			{
 				TeleOutList[i].Destroy();
 			}
+			for (int i = GoToLevelEntityList.Count - 1; i > -1; i--)
+			{
+				GoToLevelEntityList[i].Destroy();
+			}
 		}
 		public virtual void AssignCustomVariables (bool callOnContainedElements)
 		{
@@ -197,6 +218,10 @@ namespace NoNameForNow.Screens
 			for (int i = 0; i < TeleOutList.Count; i++)
 			{
 				TeleOutList[i].ConvertToManuallyUpdated();
+			}
+			for (int i = 0; i < GoToLevelEntityList.Count; i++)
+			{
+				GoToLevelEntityList[i].ConvertToManuallyUpdated();
 			}
 		}
 		public static void LoadStaticContent (string contentManagerName)

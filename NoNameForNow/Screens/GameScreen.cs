@@ -44,7 +44,7 @@ namespace NoNameForNow.Screens
 		{
             CameraActivity();
 
-            FlatRedBall.Debugging.Debugger.Write(TeleInList.Count);
+            FlatRedBall.Debugging.Debugger.Write(GoToLevelEntityList.Count);
 
             CollisionActivity();
 		}
@@ -90,6 +90,15 @@ namespace NoNameForNow.Screens
                 {
                     PlayerInstance.Position = transforms[mesh.ParentBone.Index].Translation;
                 }
+
+                if(mesh.Name.StartsWith("GoTo"))
+                {
+                    string[] gotoLevelName = mesh.Name.Split(seperators, StringSplitOptions.None);
+                    Entities.GoToLevelEntity go = new Entities.GoToLevelEntity();
+                    go.levelName = gotoLevelName[1];
+                    go.Position = transforms[mesh.ParentBone.Index].Translation;
+                    GoToLevelEntityList.Add(go);
+                }
             }
         }
 
@@ -109,10 +118,32 @@ namespace NoNameForNow.Screens
                 }
             }
 
+            for (int z = 0; z < GoToLevelEntityList.Count; z++)
+            {
+                if (PlayerInstance.cube.CollideAgainst(GoToLevelEntityList[z].cube))
+                {
+                    ChangeLevel(GoToLevelEntityList[z].levelName);
+                }
+            }
+
             foreach(AxisAlignedCube cube in Level1Instance.collisionCubes)
             {
                 PlayerInstance.cube.CollideAgainstMove(cube, 0, 1);
             }
+        }
+
+        public void ChangeLevel(string levelName)
+        {
+            Level1Instance.SetLevelByName(levelName);
+            for (int i = TeleInList.Count - 1; i >= 0; i--)
+            {
+                TeleInList[i].Destroy();
+            }
+            for (int x = TeleOutList.Count - 1; x >= 0; x--)
+            {
+                TeleOutList[x].Destroy();                
+            }
+            SetUpObjects(Level1Instance.model);
         }
 	}
 }

@@ -42,13 +42,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GlobalContent\Models\SizeTest.fbx">
+    <Compile Include="GlobalContent\Models\Level1Model.fbx">
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
-      <Name>SizeTest</Name>
+      <Name>Level1Model</Name>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="GlobalContent\Models\PlayerModel.fbx">
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
@@ -71,6 +69,13 @@
       <Name>GaussianBlur</Name>
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GlobalContent\Models\Level2.fbx">
+      <Name>Level2</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

@@ -46,10 +46,58 @@
           <AttachToContainer>true</AttachToContainer>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>PositionedObjectList&lt;T&gt;</SourceClassType>
+          <SourceClassGenericType>Entities\GoToLevelEntity</SourceClassGenericType>
+          <InstanceName>GoToLevelEntityList</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
     </ScreenSave>
   </Screens>
   <Entities>
+    <EntitySave>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Z</Name>
+          <Type>float</Type>
+        </CustomVariable>
+      </CustomVariables>
+      <Name>Entities\GoToLevelEntity</Name>
+      <Is2D>false</Is2D>
+    </EntitySave>
     <EntitySave>
       <Tags>
         <string>GLUE</string>
@@ -213,17 +261,6 @@
   </Entities>
   <GlobalFiles>
     <ReferencedFileSave>
-      <Properties>
-        <PropertySave>
-          <Name>UseContentPipeline</Name>
-          <ValueAsBool>true</ValueAsBool>
-        </PropertySave>
-      </Properties>
-      <Name>GlobalContent/Models/SizeTest.fbx</Name>
-      <IsSharedStatic>true</IsSharedStatic>
-      <HasPublicProperty>true</HasPublicProperty>
-    </ReferencedFileSave>
-    <ReferencedFileSave>
       <Name>GlobalContent/Other/BloomCombine.fx</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <HasPublicProperty>true</HasPublicProperty>
@@ -239,7 +276,18 @@
       <HasPublicProperty>true</HasPublicProperty>
     </ReferencedFileSave>
     <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>UseContentPipeline</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
       <Name>GlobalContent/Models/PlayerModel.fbx</Name>
+      <IsSharedStatic>true</IsSharedStatic>
+      <HasPublicProperty>true</HasPublicProperty>
+    </ReferencedFileSave>
+    <ReferencedFileSave>
+      <Name>GlobalContent/Models/Level1Model.fbx</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <HasPublicProperty>true</HasPublicProperty>
     </ReferencedFileSave>

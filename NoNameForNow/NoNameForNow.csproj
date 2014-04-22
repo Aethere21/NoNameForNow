@@ -118,6 +118,10 @@
     <Compile Include="DataTypes\TileMapInfo.Generated.cs" />
     <Compile Include="DrawableBatches\DrawableBatchControl.cs" />
     <Compile Include="DrawableBatches\ModelDrawableBatch.cs" />
+    <Compile Include="Entities\GoToLevelEntity.cs" />
+    <Compile Include="Entities\GoToLevelEntity.Generated.cs">
+      <DependentUpon>GoToLevelEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Level1.cs" />
     <Compile Include="Entities\Level1.Generated.cs">
       <DependentUpon>Level1.cs</DependentUpon>

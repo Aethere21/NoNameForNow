@@ -31,19 +31,18 @@ namespace NoNameForNow.Entities
 	public partial class Level1
 	{
         DrawableBatchControl control = new DrawableBatchControl();
-        public ModelDrawableBatch model = new ModelDrawableBatch("Content/GlobalContent/Models/SizeTest", true);
+        public ModelDrawableBatch model = new ModelDrawableBatch("Content/GlobalContent/Models/Level1Model", true);
 
         public List<AxisAlignedCube> collisionCubes = new List<AxisAlignedCube>();
 
 		private void CustomInitialize()
 		{
             control.LoadModel(model);
-            collisionCubes = control.CreateCube(model, true, Color.Green);
+            collisionCubes = control.CreateCube(model, false, Color.Green);
 		}
 
 		private void CustomActivity()
 		{
-
             model.Update();
 		}
 
@@ -57,6 +56,14 @@ namespace NoNameForNow.Entities
         {
 
 
+        }
+
+        public void SetLevelByName(string levelName)
+        {
+            control.UnloadModel(model);
+            model = new ModelDrawableBatch("Content/GlobalContent/Models/" + levelName, true);
+            control.LoadModel(model);
+            collisionCubes = control.CreateCube(model, false, Color.Green);
         }
 	}
 }

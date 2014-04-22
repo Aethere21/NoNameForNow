@@ -51,9 +51,6 @@ namespace NoNameForNow
 		public static void Initialize ()
 		{
 			
-            //BloomCombine = FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Effect>(@"content/globalcontent/other/bloomcombine.fx", ContentManagerName);
-            //BloomExtract = FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Effect>(@"content/globalcontent/other/bloomextract.fx", ContentManagerName);
-            //GaussianBlur = FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Effect>(@"content/globalcontent/other/gaussianblur.fx", ContentManagerName);
 						IsInitialized = true;
 		}
 		public static void Reload (object whatToReload)

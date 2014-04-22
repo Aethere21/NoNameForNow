@@ -31,6 +31,7 @@ namespace NoNameForNow.Screens
             if(!debugMode)
             {
                 Camera.Main.AttachTo(PlayerInstance, false);
+                Camera.Main.RelativePosition.Y += 45;
             }
 
         }
