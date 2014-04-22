@@ -50,8 +50,7 @@ namespace NoNameForNow
 		static string ContentManagerName = "Global";
 		public static void Initialize ()
 		{
-			
-						IsInitialized = true;
+			IsInitialized = true;
 		}
 		public static void Reload (object whatToReload)
 		{

@@ -47,6 +47,11 @@ namespace NoNameForNow.Screens
             FlatRedBall.Debugging.Debugger.Write(GoToLevelEntityList.Count);
 
             CollisionActivity();
+
+            if(InputManager.Keyboard.KeyReleased(Keys.Enter))
+            {
+                ChangeLevel("Level2");
+            }
 		}
 
 		void CustomDestroy()
@@ -99,6 +104,11 @@ namespace NoNameForNow.Screens
                     go.Position = transforms[mesh.ParentBone.Index].Translation;
                     GoToLevelEntityList.Add(go);
                 }
+
+                if(mesh.Name == "VisibleTest")
+                {
+                    //mesh.Draw();
+                }
             }
         }
 
@@ -143,6 +153,11 @@ namespace NoNameForNow.Screens
             {
                 TeleOutList[x].Destroy();                
             }
+            for (int z = GoToLevelEntityList.Count - 1; z >= 0; z--)
+            {
+                GoToLevelEntityList[z].Destroy();
+            }
+            
             SetUpObjects(Level1Instance.model);
         }
 	}

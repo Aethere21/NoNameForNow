@@ -93,7 +93,10 @@ namespace NoNameForNow.DrawableBatches
                     }
                     if (drawModel)
                     {
-                        mesh.Draw();
+                        if(mesh.Name != "VisibleTest")
+                        {
+                            mesh.Draw();
+                        }
                     }
             }
         }

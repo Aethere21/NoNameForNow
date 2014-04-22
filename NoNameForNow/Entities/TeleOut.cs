@@ -50,7 +50,7 @@ namespace NoNameForNow.Entities
 
 		private void CustomDestroy()
 		{
-
+            cube.RemoveSelfFromListsBelongingTo();
 
 		}
 
