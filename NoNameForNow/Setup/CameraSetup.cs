@@ -14,7 +14,6 @@ namespace NoNameForNow
 	{
 			internal static void SetupCamera (Camera cameraToSetUp, GraphicsDeviceManager graphicsDeviceManager)
 			{
-				cameraToSetUp.UsePixelCoordinates();
 			}
 			internal static void ResetCamera (Camera cameraToReset)
 			{

@@ -39,13 +39,25 @@ namespace NoNameForNow
 #endif
         }
 
+        public BloomPostprocess.BloomComponent bloom;
+
         protected override void Initialize()
         {
             FlatRedBallServices.InitializeFlatRedBall(this, graphics);
 			CameraSetup.SetupCamera(SpriteManager.Camera, graphics);
 			GlobalContent.Initialize();
 
-            //ScreenManager.Start(typeof(SomeScreen).FullName);
+            FlatRedBallServices.GraphicsOptions.TextureFilter = TextureFilter.Point;
+            FlatRedBallServices.GraphicsOptions.BackgroundColor = Color.Gray;
+            FlatRedBallServices.GraphicsOptions.UseMultiSampling = true;
+
+            IsFixedTimeStep = false;
+            graphics.SynchronizeWithVerticalRetrace = true;
+
+			FlatRedBall.Screens.ScreenManager.Start(typeof(NoNameForNow.Screens.GameScreen));
+
+            bloom = new BloomPostprocess.BloomComponent(this);
+            Components.Add(bloom);
 
             base.Initialize();
         }
@@ -56,6 +68,8 @@ namespace NoNameForNow
             FlatRedBallServices.Update(gameTime);
 
             FlatRedBall.Screens.ScreenManager.Activity();
+
+            bloom.BeginDraw();
 
             base.Update(gameTime);
         }

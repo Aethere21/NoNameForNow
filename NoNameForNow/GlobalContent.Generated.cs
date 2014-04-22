@@ -15,13 +15,34 @@ namespace NoNameForNow
 	public static partial class GlobalContent
 	{
 		
+		public static Microsoft.Xna.Framework.Graphics.Effect BloomCombine { get; set; }
+		public static Microsoft.Xna.Framework.Graphics.Effect BloomExtract { get; set; }
+		public static Microsoft.Xna.Framework.Graphics.Effect GaussianBlur { get; set; }
 		[System.Obsolete("Use GetFile instead")]
 		public static object GetStaticMember (string memberName)
 		{
+			switch(memberName)
+			{
+				case  "BloomCombine":
+					return BloomCombine;
+				case  "BloomExtract":
+					return BloomExtract;
+				case  "GaussianBlur":
+					return GaussianBlur;
+			}
 			return null;
 		}
 		public static object GetFile (string memberName)
 		{
+			switch(memberName)
+			{
+				case  "BloomCombine":
+					return BloomCombine;
+				case  "BloomExtract":
+					return BloomExtract;
+				case  "GaussianBlur":
+					return GaussianBlur;
+			}
 			return null;
 		}
 		public static bool IsInitialized { get; private set; }
@@ -30,6 +51,9 @@ namespace NoNameForNow
 		public static void Initialize ()
 		{
 			
+            //BloomCombine = FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Effect>(@"content/globalcontent/other/bloomcombine.fx", ContentManagerName);
+            //BloomExtract = FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Effect>(@"content/globalcontent/other/bloomextract.fx", ContentManagerName);
+            //GaussianBlur = FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Effect>(@"content/globalcontent/other/gaussianblur.fx", ContentManagerName);
 						IsInitialized = true;
 		}
 		public static void Reload (object whatToReload)
